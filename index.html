@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Azad ❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Segoe UI', sans-serif;
+  scroll-behavior:smooth;
+  cursor: none; /* hide default cursor */
+}
+
+/* HEART CURSOR */
+#heartCursor{
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  pointer-events: none;
+  background: url('https://i.ibb.co/Vp6GZfJ/heart.png') no-repeat center center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease; /* cursor speed */
+  z-index: 9999;
+}
+
+/* LOCK SCREEN */
+#lockScreen{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(#ff758c,#ff7eb3);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  z-index:9998;
+  overflow:hidden;
+}
+
+#lockScreen input{
+  padding:12px;
+  border:none;
+  border-radius:20px;
+  font-size:16px;
+  text-align:center;
+  margin-top:15px;
+  outline:none;
+}
+
+#lockScreen button{
+  margin-top:15px;
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  background:white;
+  color:#ff4d6d;
+}
+
+/* FLOATING HEARTS */
+.heart{
+  position:absolute;
+  width:20px;
+  height:20px;
+  background: url('https://i.ibb.co/Vp6GZfJ/heart.png') no-repeat center center;
+  background-size: contain;
+  animation: float 4s linear infinite;
+}
+
+@keyframes float{
+  0% {transform: translateY(0) scale(1);}
+  50% {transform: translateY(-200px) scale(1.3);}
+  100% {transform: translateY(-400px) scale(1);}
+}
+
+/* COMMON PAGE STYLE */
+.page{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px;
+  color:white;
+}
+
+h1{
+  font-size:36px;
+  margin-bottom:15px;
+}
+
+p{
+  font-size:18px;
+  max-width:700px;
+  line-height:1.6;
+}
+
+button{
+  margin-top:25px;
+  padding:12px 28px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  background:white;
+  color:#ff4d6d;
+}
+
+/* BACKGROUNDS */
+#page1{background:linear-gradient(#ff9a9e,#fad0c4);}
+#page2{background:linear-gradient(#a18cd1,#fbc2eb);}
+#page3{background:linear-gradient(#ffecd2,#fcb69f); color:#333;}
+#page4{background:linear-gradient(#f6d365,#fda085);}
+#page5{background:linear-gradient(#f093fb,#f5576c);}
+#page6{background:linear-gradient(#5ee7df,#b490ca);}
+#page7{background:linear-gradient(#cfd9df,#e2ebf0); color:#333;}
+#page8{background:linear-gradient(#ff758c,#ff7eb3);}
+
+/* SURPRISE TEXT */
+#surprise{
+  display:none;
+  margin-top:20px;
+  font-size:28px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- CUSTOM HEART CURSOR -->
+<div id="heartCursor"></div>
+
+<!-- LOCK SCREEN -->
+<div id="lockScreen">
+  <h1>Private Access 🔐</h1>
+  <p>Enter the password to see your Valentine surprise</p>
+  <input type="password" id="password" placeholder="Enter Password">
+  <button onclick="unlock()">Enter 💖</button>
+  <p id="error" style="margin-top:10px;color:#ffe6ea;"></p>
+</div>
+
+<!-- BACKGROUND MUSIC -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<!-- PAGE 1 -->
+<section class="page" id="page1">
+  <h1>Hello Azad 💖</h1>
+  <p>
+    There is a small surprise waiting for you.<br>
+    This space exists only because you exist.
+  </p>
+
+  <button onclick="showLove()">Click Me 💕</button>
+
+  <div id="surprise">
+    Happy Valentine’s Day, Azad Jiiii ❤️🌹
+  </div>
+
+  <button onclick="goTo('page2')">Next ➜</button>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="page2">
+  <h1>Our Story 📖</h1>
+  <p>
+    From strangers to something that feels like home.<br>
+    We talked, we laughed, and we chose each other.
+  </p>
+  <button onclick="goTo('page3')">Next ➜</button>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="page3">
+  <h1>Why I Love You 💕</h1>
+  <p>
+    • You bring calm to my chaos<br>
+    • You understand me without words<br>
+    • You make me feel safe<br>
+    • You are my favorite person
+  </p>
+  <button onclick="goTo('page4')">Next ➜</button>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" id="page4">
+  <h1>Memories 📸</h1>
+  <p>
+    Every moment with you becomes a memory I never want to forget.
+  </p>
+  <button onclick="goTo('page5')">Next ➜</button>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page" id="page5">
+  <h1>Love Letter 💌</h1>
+  <p>
+    Dear Azad,<br><br>
+    Loving you was never planned, it simply happened.<br>
+    You became my peace, my comfort, and my constant.<br><br>
+    Always yours,<br>
+    Sukhman 💗
+  </p>
+  <button onclick="goTo('page6')">Next ➜</button>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page" id="page6">
+  <h1>Our Songs 🎶</h1>
+  <p>
+    Some songs don’t just play, they feel like us.
+  </p>
+  <a href="https://open.spotify.com" target="_blank">
+    <button>Open Playlist 🎧</button>
+  </a>
+  <button onclick="goTo('page7')">Next ➜</button>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page" id="page7">
+  <h1>Promises 🤍</h1>
+  <p>
+    I promise to choose you every day,<br>
+    even on the days that are not easy.
+  </p>
+  <button onclick="goTo('page8')">Next ➜</button>
+</section>
+
+<!-- PAGE 8 -->
+<section class="page" id="page8">
+  <h1>Will You Be My Valentine? 🌹</h1>
+  <button>YES 💖</button>
+  <button>Obviously YES 😌</button>
+</section>
+
+<script>
+/* SCROLLING */
+function goTo(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+/* SURPRISE */
+function showLove(){
+  document.getElementById("surprise").style.display="block";
+}
+
+/* PASSWORD UNLOCK */
+function unlock(){
+  const pass = document.getElementById("password").value;
+  const correct = "24 September 2025";  
+  if(pass === correct){
+    document.getElementById("lockScreen").style.display="none";
+  } else {
+    document.getElementById("error").innerText = "Wrong password. Try again.";
+  }
+}
+
+/* CUSTOM CURSOR */
+const heartCursor = document.getElementById("heartCursor");
+document.addEventListener("mousemove", e => {
+  heartCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+});
+
+/* FLOATING HEARTS */
+const lockScreen = document.getElementById("lockScreen");
+for(let i=0;i<15;i++){
+  let heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.style.left = Math.random()*100 + "%";
+  heart.style.animationDuration = (3 + Math.random()*3) + "s";
+  heart.style.width = heart.style.height = (15 + Math.random()*15) + "px";
+  lockScreen.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
